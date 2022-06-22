@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<!-- saved from url=(0053)https://tristen.ca/hcl-picker/#/hcl/6/1/A1ADB7/000000 -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  
+  <title>Colorpicker for data | tristen</title>
+  <meta name="twitter:site" content="@fallsemo">
+  <meta property="og:site_name" content="Colorpicker for data">
+  <meta name="twitter:url" content="http://tristen.ca/hcl-picker/">
+  <meta name="twitter:domain" content="http://tristen.ca/hcl-picker/">
+  <meta property="og:url" content="http://tristen.ca/hcl-picker/">
+  <meta name="twitter:title" content="Colorpicker for data">
+  <meta property="og:title" content="Colorpicker for data">
+  <meta name="twitter:description" content="Avoiding equidistant HSV colors">
+  <meta property="og:description" content="Avoiding equidistant HSV colors">
+  <meta name="twitter:image" content="http://tristen.ca/hcl-picker/img/twitter-card.png">
+  <meta name="st:image" content="http://tristen.ca/hcl-picker/img/twitter-card.png">
+  <meta property="og:image" content="http://tristen.ca/hcl-picker/img/twitter-card.png">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary">
+  <link rel="shortcut icon" href="https://tristen.ca/hcl-picker/img/favicon.png" type="image/x-icon">
+  <link rel="stylesheet" href="./hcl_files/base.css">
+  <link rel="stylesheet" href="./hcl_files/site.css">
+<body data-new-gr-c-s-check-loaded="14.1064.0" data-gr-ext-installed="">
+<div class="limiter">
+  <section id="picker" class="picker active contain space-bottom2 space-top2">
+    <nav class="axis-select pin-topleft z100"><button class="axis-option col12 block button uppercase unround keyline-bottom hlc" data-tooltip="hue-lightness">h–l</button><button class="axis-option col12 block button uppercase unround keyline-bottom clh" data-tooltip="chroma-lightness">c–l</button><button class="axis-option col12 block button uppercase unround keyline-bottom hcl active" data-tooltip="hue-chroma">h–c</button></nav>
+    <div class="canvas fl">
+      <div id="bg">
+        <canvas id="colorspace" width="210" height="210"></canvas>
+      </div>
+      <canvas id="grad" width="440" height="440"></canvas>
+      <div class="drag_cont">
+        <div class="drag from" style="left: 262.5px; top: 36.5px;"></div>
+        <div class="drag to" style="left: 87.5px; top: 330.5px;"></div>
+      </div>
+      <input id="slider" class="slider col12" type="range" value="1" min="0" max="1.7" step="0.01">
+
+      <div class="slider-output pin-bottomleft">
+        <span class="quiet capitalize js-slider-title">lightness</span>
+        <span class="quiet js-slider-value">1</span>
+      </div>
+      <div style="float:right; margin-right:30px;margin-top: 5px;color: #bbb;">Adopted from: https://tristen.ca/hcl-picker</div>
+    </div>
+    <div class="sidebar">
+      <div class="output pad1">
+        <div id="visual-output" class="fl"><div class="swatch" style="background: rgb(161, 173, 183);"></div><div class="swatch" style="background: rgb(0, 0, 0);"></div><div class="swatch" style="background: rgb(0, 0, 0);"></div><div class="swatch" style="background: rgb(0, 0, 0);"></div><div class="swatch" style="background: rgb(0, 0, 0);"></div><div class="swatch" style="background: rgb(0, 0, 0);"></div></div>
+        <div id="code-output" class="fl hexes quiet"><span class="value">#A1ADB7</span><span class="value">#000000</span><span class="value">#000000</span><span class="value">#000000</span><span class="value">#000000</span><span class="value">#000000</span></div>
+      </div>
+
+      <button id="select" class="z1 pin-bottom keyline-bottom button col12 js-select select-all control unround" data-clipboard-text="#A1ADB7,#000000,#000000,#000000,#000000,#000000">
+        Copy<div class="sprite icon clipboard"></div>
+      </button>
+
+      <div id="controls" class="controls pill unround pin-bottom col12 clearfix"><!--
+        --><button class="col6 button unround js-add" data-tooltip="Add a swatch">
+          +
+        </button><!--
+        --><button class="col6 button round-bottomright js-subtract" data-tooltip="Remove a swatch">
+          -
+        </button>
+      </div>
+    </div>
+  </section>
+
+  
+
+</div>
+
+<script src="./hcl_files/bundle.js.download"></script>
+
+</body><grammarly-desktop-integration data-grammarly-shadow-root="true"></grammarly-desktop-integration></html>
