@@ -147,14 +147,6 @@ $('.arrow').click(function(){
       </div>
       <div id="allColorCodes">
         <div class="secondaryBar barCollapsedDiv collapsedTransition collapsedBar">
-          <div class="cell left-cell">HEX</div>
-          <div class="cell right-cell" id="mainHEX">#50c7c7</div>
-        </div>
-        <div class="secondaryBar barCollapsedDiv collapsedTransition collapsedBar">
-          <div class="cell left-cell">RGB</div>
-          <div class="cell right-cell" id="mainRGB">rgb(80,199,199)</div>
-        </div>
-        <div class="secondaryBar barCollapsedDiv collapsedTransition collapsedBar">
           <div class="cell left-cell">HSL</div>
           <div class="cell right-cell" id="mainHSL">hsl(180°, 60%, 78%)</div>
         </div>
@@ -262,8 +254,7 @@ $(document).ready(function() {
       var hsl = "hsl(" + colors[0] + "°, " + Math.round(hslObj.s*100) + "%, " + Math.round(hslObj.l*100) + "%" + ")";
       //hsv(180°, 60%, 78%)
 
-      $("#mainHEX").html(hex);
-      $("#mainRGB").html(rgb);
+      
       $("#mainHSV").html(hsv);
       $("#mainHSL").html(hsl);
       
@@ -427,10 +418,8 @@ $(document).ready(function() {
       var hex = str_rgb2hex(rgb);
       var rgbObj = getRGBobj(rgb);
       var hslObj = rgb2hsl(rgbObj);
-      debugger
+      
       var hsl = "hsl(" + Math.round(hslObj.h*360) + "°, " + Math.round(hslObj.s*100) + "%, " + Math.round(hslObj.l*100) + "%" + ")";
-      $("#mainHEX").html(hex);
-      $("#mainRGB").html(rgb);
       $("#mainHSV").html(hsv);
       $("#mainHSL").html(hsl);
     }
