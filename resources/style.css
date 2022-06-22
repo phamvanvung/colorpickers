@@ -1,20 +1,4 @@
-@font-face {
-  font-family: 'ProximaNovaSoft-Regular';
-  src: url('../letra/ProximaNovaSoft-Regular.woff') format('woff'),
-       url('../letra/ProximaNovaSoft-Regular.ttf') format('truetype'),
-       url('../letra/ProximaNovaSoft-Regular.svg#ProximaNovaSoft-Regular') format('svg');
-  font-weight: normal;
-  font-style: normal;
-}
 
-@font-face {
-  font-family: 'proxima-nova-soft-regular-5a1ae0c89ef4d';
-  src: url('../letra/proxima-nova-soft-regular-5a1ae0c89ef4d.eot');
-  src: url('../letra/proxima-nova-soft-regular-5a1ae0c89ef4d.woff2') format('woff2'),
-       url('../letra/proxima-nova-soft-regular-5a1ae0c89ef4dd41d.eot?#iefix') format('embedded-opentype');
-  font-weight: normal;
-  font-style: normal;
-}
 .popup {
   width: 380px;
   height: 180px;

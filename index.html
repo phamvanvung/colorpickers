@@ -64,49 +64,6 @@ $('.arrow').click(function(){
    $('.popup').show();
 });
 </script>
-<script>
-var frank = new Vue({
-  el:'#subscribe',
-  data:{
-		email: "",
-    code: "tbeiuwnnmzczgaczncqheiqslzygcb",
-    submit: "insert",
-    showinvalid: false,
-    showalready: false,
-    showsuccess: false
-  },
-  methods: {
-           enviaremail() {
-            axios.post('validaremail.html', {
-                email: this.email,
-                code: this.code,
-                submit: this.submit
-              })
-              .then(function (response) {
-                if(response.data == 'invalid'){
-                frank.showinvalid = true;
-                frank.showalready = false;
-                frank.showsuccess = false;
-                    }
-                if(response.data == 'This email is already subscribed'){
-                frank.showalready = true;
-                frank.showinvalid = false;
-                frank.showsuccess = false;
-                    }
-                if(response.data == 'You have been succesfully subscribed to our newsletter'){
-                frank.showsuccess = true;
-                frank.showinvalid = false;
-                frank.showalready = false;
-                    }
-              console.log(response.data);
-              })
-              .catch(function (error) {
-                console.log(error);
-              });
-          }
-        }
-});
-</script>
   <style>
 @media (max-width:1080px) {
   .eltextoindex{
@@ -163,19 +120,10 @@ var frank = new Vue({
   });
   </script>
 
-<br><br><br>
 
-<div>
-  <div class="segundanav __web-inspector-hide-shortcut__" style="width:100%;background-color:#ffffff;border-bottom:1px solid #eaeaea;height:78px;display: table;z-index:3" id="fixnavid">
-<div style="vertical-align: middle;display: table-cell;"><svg style="margin-left:43px" version="1.1" class="button-svg svgtutorials" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="24px" height="16px" viewBox="-0.5 21.5 24 16" enable-background="new -0.5 21.5 24 16" xml:space="preserve">
-</svg> <h1 class="eltextoindex" style="margin-left:6.3%;display: initial;font-size:40px;font-weight:400">Google Color Picker</h1>
-</div>
-
-
-</div>
+<br/>
+<br/>
 <div class="container">
-  <br>
-
 
   <div id="marginparrafo" class="marginclass margindeadentro">
      <div class="pickshell">
@@ -203,6 +151,10 @@ var frank = new Vue({
         <div class="secondaryBar barCollapsedDiv collapsedTransition collapsedBar">
           <div class="cell left-cell">RGB</div>
           <div class="cell right-cell" id="mainRGB">rgb(80,199,199)</div>
+        </div>
+        <div class="secondaryBar barCollapsedDiv collapsedTransition collapsedBar">
+          <div class="cell left-cell">HSL</div>
+          <div class="cell right-cell" id="mainHSL">hsl(180°, 60%, 78%)</div>
         </div>
         <div class="secondaryBar barCollapsedDiv collapsedTransition collapsedBar">
           <div class="cell left-cell">HSV</div>
@@ -233,9 +185,8 @@ var frank = new Vue({
     border-color: #150613!important;}
 </style>
 
-  <br><br><br>
   
-  <br><br><script>
+<script>
 $(document).ready(function() {
 	$('#buttoncomm').click(function() {
 		var comment = $('.commentBox').val();
@@ -265,74 +216,6 @@ $(document).ready(function() {
 
 });
 </script>
-
-
-
-
-
-<script>
-new Vue({
-  el:'#comment',
-  data:{
-		comment: "",
-    datetime: "2020-08-05 11:03:03",
-    userid: "",
-    slug: "/google-color-picker",
-    image: "",
-    name: "Graeme Bagley",
-    username: "graemebagley",
-    showcomment: false,
-		showerror: false,
-    submit: "insert",
-		comments: []
-  },
-  methods: {
-           enviarcomment() {
-						 if(this.comment.length >= 1){
-						 if(this.comment.length <= 250){
-            axios.post('validarcomment.html', {
-                comment: this.comment,
-                datetime: this.datetime,
-                userid: this.userid,
-                slug: this.slug,
-                submit: this.submit
-              })
-              .then(function (response) {
-                console.log(response);
-              })
-              .catch(function (error) {
-                console.log(error);
-              });
-
-              this.showcomment = true;
-							this.comments.push({message: this.comment});
-          }}},
-
-					errorvue(){
-					   if(this.comment.length == 0){
-							 this.showerror = true;
-						}else{
-							this.showerror = false;
-						}
-					}
-        }
-});
-</script>
-<script>
-Vue.component('load', {
-template: '<div class="comment"><div class="comment-avatar"><a :href="/user/ + username "><img class="mobilecommentimage" style="object-fit:cover" :src="image"></a></div><div class="comment-box"><div style="line-height:20px;font-weight:700;font-size:17px"><a :href="/user/ + username" style="color:#428bca">{{ name }}</a></div><div style="line-height:20px" class="comment-text">{{ commentMessage }}</div><div class="comment-footer"><div class="comment-info"><span style="line-height:18px" class="comment-date">{{ datetime }}</span></div></div></div></div>',
-props: ['comment-message','datetime','name','image','username'],
-});
-</script>
-<script>
-Vue.component('errorvue', {
-template: '<div class="alert alert-danger"><strong style="font-weight:700">Warning!</strong> You should at list write something to continue. Thank You!</div>',
-});
-</script>
-    </div>
-    </div>
-<br><br>
-
 <br><br>
 <script>
 $(document).ready(function() {
@@ -371,12 +254,16 @@ $(document).ready(function() {
       var hue = colors[0];
       var rgb = str_hex2rgb(hex);
       var hsv = "hsv(" + colors[0] + "°, " + colors[1] + "%, " + colors[2] + "%" + ")";
-
+      var rgbObj = getRGBobj(rgb);
+      var hslObj = rgb2hsl(rgbObj);
+      var hsl = "hsl(" + Math.round(hslObj.h*360) + "°, " + Math.round(hslObj.s*100) + "%, " + Math.round(hslObj.l*100) + "%" + ")";
       //hsv(180°, 60%, 78%)
 
       $("#mainHEX").html(hex);
       $("#mainRGB").html(rgb);
       $("#mainHSV").html(hsv);
+      $("#mainHSL").html(hsl);
+      
 
       $input.val(hex);
       $inputRGB.val(rgb);
@@ -518,7 +405,7 @@ $(document).ready(function() {
 
         var rgbObj = getRGBobj(rgb);
         var hsl = rgb2hsl(rgbObj);
-        console.log(hsl);
+        
         /*HERE*/
 
         checkLightHue(hsv);
@@ -535,9 +422,14 @@ $(document).ready(function() {
     */
     function colorValues(rgb,hsv){
       var hex = str_rgb2hex(rgb);
+      var rgbObj = getRGBobj(rgb);
+      var hslObj = rgb2hsl(rgbObj);
+      debugger
+      var hsl = "hsl(" + Math.round(hslObj.h*360) + "°, " + Math.round(hslObj.s*100) + "%, " + Math.round(hslObj.l*100) + "%" + ")";
       $("#mainHEX").html(hex);
       $("#mainRGB").html(rgb);
       $("#mainHSV").html(hsv);
+      $("#mainHSL").html(hsl);
     }
 
       // input change at each key pressed
