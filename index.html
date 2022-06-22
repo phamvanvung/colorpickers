@@ -123,16 +123,18 @@ $('.arrow').click(function(){
 
 <br/>
 <br/>
-<div class="container">
 
+<div class="container">
+  
   <div id="marginparrafo" class="marginclass margindeadentro">
+    Adropted from: https://hexcolorspicker.com
      <div class="pickshell">
       <div class="picker" data-hsv="180,60,78">
         <div class="icon change" style="background-color: rgb(80, 199, 199);">
-          <div class="inputContainer"><i class="material-icons"></i>
+          <div class="inputContainer"><i class="material-icons"></i>
             <input class="change" type="text" name="change" value="" style="z-index: 12345; text-transform: uppercase; font-weight: normal; border-bottom-color: rgba(0, 0, 0, 0.2);">
           </div>
-          <div class="inputContainerRGB"><i class="material-icons" style="margin-top: 15px"></i>
+          <div class="inputContainerRGB"><i class="material-icons" style="margin-top: 15px"></i>
             <input class="changeRGB" type="text" name="change" value="" style="z-index: 12345; margin-top: 15px; font-weight: normal; border-bottom-color: rgba(0, 0, 0, 0.2);">
           </div>
         </div>
@@ -161,10 +163,11 @@ $('.arrow').click(function(){
           <div class="cell right-cell" id="mainHSV">hsv(180°, 60%, 78%)</div>
         </div>
         <div class="mainBar barCollapsedDiv" id="ColourExpandBar">
-          <div class="cell left-cell"><span style="position: absolute"><i class="material-icons" style=" vertical-align: middle;margin-top: 9px;"></i></span>
+          <div class="cell left-cell"><span style="position: absolute"><i class="material-icons" style=" vertical-align: middle;margin-top: 9px;"></i></span>
             <div class="cell txtCollapse" style="padding-left: 38px">Show colour values</div>
           </div>
         </div>
+        
       </div>
     </div>
 
@@ -256,7 +259,7 @@ $(document).ready(function() {
       var hsv = "hsv(" + colors[0] + "°, " + colors[1] + "%, " + colors[2] + "%" + ")";
       var rgbObj = getRGBobj(rgb);
       var hslObj = rgb2hsl(rgbObj);
-      var hsl = "hsl(" + Math.round(hslObj.h*360) + "°, " + Math.round(hslObj.s*100) + "%, " + Math.round(hslObj.l*100) + "%" + ")";
+      var hsl = "hsl(" + colors[0] + "°, " + Math.round(hslObj.s*100) + "%, " + Math.round(hslObj.l*100) + "%" + ")";
       //hsv(180°, 60%, 78%)
 
       $("#mainHEX").html(hex);
